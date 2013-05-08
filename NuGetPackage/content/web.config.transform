@@ -1,0 +1,12 @@
+<configuration>
+	<appSettings>
+		<add key="AuthModule.Realm" value="SomeRealm" />
+		<add key="AuthModule.Username" value="SomeUser" />
+		<add key="AuthModule.Password" value="SomePassword" />
+	</appSettings>
+	<system.webServer>
+		<modules>
+			<add name="AzureAuthentication" type="AzureWindowsAuthentication.AzureWindowsAuthenticationModule, AzureWindowsAuthentication"/>
+		</modules>
+	</system.webServer>
+</configuration>
