@@ -9,7 +9,7 @@ This is simply for use on demo websites and the like, it is in no way secure, cr
 
 With that understood, this can be installed via Nuget:
 
-    Install-Package  AzureWindowsAuthentication
+    Install-Package AzureWindowsAuthentication
 
 Set the username, password and realm via the appSettings
 
