@@ -2,11 +2,11 @@
 <package >
   <metadata>
     <id>AzureWindowsAuthentication</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <authors>Rob White</authors>
     <owners>Rob White</owners>
-    <licenseUrl>https://github.com/ilivewithian/AzureWindowsAuthentication</licenseUrl>
-    <projectUrl>https://github.com/ilivewithian/AzureWindowsAuthentication/blob/master/License.txt</projectUrl>
+    <licenseUrl>https://github.com/ilivewithian/AzureWindowsAuthentication/blob/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/ilivewithian/AzureWindowsAuthentication</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Windows Authentication for Azure (kind of)</description>
 	<copyright>Copyright Rob White 2013</copyright>
