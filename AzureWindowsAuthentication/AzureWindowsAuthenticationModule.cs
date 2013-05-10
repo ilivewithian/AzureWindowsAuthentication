@@ -46,13 +46,22 @@ namespace AzureWindowsAuthentication
         {
             var context = ((HttpApplication)source).Context;
 
-            if(!IsAuthenticated(context))
+            if(!IsAuthenticated(context) && !IsCookieSet(context))
             {
                 //Issue challenge
                 context.Response.Clear();
                 context.Response.StatusCode = 401;
                 context.Response.AddHeader("WWW-Authenticate", "Basic realm =\"" + _realm + "\"");
             }
+        }
+
+        private bool IsCookieSet(HttpContext context)
+        {
+            var cookie = context.Request.Cookies.Get(CookieName);
+            if (cookie == null)
+                return false;
+
+            return cookie.Value == "1";
         }
 
         private bool IsAuthenticated(HttpContext context)

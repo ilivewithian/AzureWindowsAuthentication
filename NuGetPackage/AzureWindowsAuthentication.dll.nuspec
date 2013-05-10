@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AzureWindowsAuthentication</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <authors>Rob White</authors>
     <owners>Rob White</owners>
     <licenseUrl>https://github.com/ilivewithian/AzureWindowsAuthentication/blob/master/License.txt</licenseUrl>
