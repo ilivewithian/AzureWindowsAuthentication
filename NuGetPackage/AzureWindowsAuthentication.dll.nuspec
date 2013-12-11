@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AzureWindowsAuthentication</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <authors>Rob White</authors>
     <owners>Rob White</owners>
     <licenseUrl>https://github.com/ilivewithian/AzureWindowsAuthentication/blob/master/License.txt</licenseUrl>
@@ -11,5 +11,8 @@
     <description>Windows Authentication for Azure (kind of)</description>
 	<copyright>Copyright Rob White 2013</copyright>
     <tags>Azure Basic Windows Authentication</tags>
+	<dependencies>
+		<dependency id="Microsoft.WindowsAzure.ConfigurationManager" version="2.0.3" />
+	</dependencies>
   </metadata>
 </package>
