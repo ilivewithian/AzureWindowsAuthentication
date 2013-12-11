@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Configuration;
 using System.Text;
 using System.Web;
+using Microsoft.WindowsAzure;
 
 namespace AzureWindowsAuthentication
 {
@@ -11,26 +11,31 @@ namespace AzureWindowsAuthentication
         private readonly string _realm;
         private readonly string _username;
         private readonly string _password;
+        private readonly bool _enabled;
 
         public AzureWindowsAuthenticationModule()
         {
-            _realm = ConfigurationManager.AppSettings["AuthModule.Realm"];
-            _username = ConfigurationManager.AppSettings["AuthModule.Username"];
-            _password = ConfigurationManager.AppSettings["AuthModule.Password"];
+            _realm = CloudConfigurationManager.GetSetting("AuthModule.Realm");
+            _username = CloudConfigurationManager.GetSetting("AuthModule.Username");
+            _password = CloudConfigurationManager.GetSetting("AuthModule.Password");
+            _enabled = string.IsNullOrWhiteSpace(_username) | string.IsNullOrWhiteSpace(_password);
         }
 
         public void Init(HttpApplication context)
         {
-            context.AuthenticateRequest += AuthenticateUser;
+            if (_enabled)
+            {
+                context.AuthenticateRequest += AuthenticateUser;
 
-            context.EndRequest += IssueAuthenticationChallenge;
+                context.EndRequest += IssueAuthenticationChallenge;
+            }
         }
 
         private void AuthenticateUser(Object source, EventArgs e)
         {
             var context = ((HttpApplication)source).Context;
 
-            if(IsAuthenticated(context))
+            if (IsAuthenticated(context))
             {
                 var authCookie = context.Request.Cookies.Get(CookieName);
                 if (authCookie == null)
